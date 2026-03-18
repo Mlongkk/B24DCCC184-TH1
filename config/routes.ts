@@ -1,4 +1,6 @@
-﻿export default [
+﻿import component from "@/locales/en-US/component";
+
+export default [
 	{
 		path: '/user',
 		layout: false,
@@ -37,40 +39,46 @@
 		icon: 'ArrowsAltOutlined',
 	},
 	{
-	path: '/guess-number',
-	name: 'Đoán số',
-	component: './GuessNumber',
-	icon: 'ArrowsAltOutlined',
+		path: '/guess-number',
+		name: 'Đoán số',
+		component: './GuessNumber',
+		icon: 'ArrowsAltOutlined',
 	},
 	{
-	path: '/todo',
-	name: 'Todo List',
-	component: './TodoList',
-	icon: 'ArrowsAltOutlined',
+		path: '/todo',
+		name: 'Todo List',
+		component: './TodoList',
+		icon: 'ArrowsAltOutlined',
 	},
 	{
-	path: '/one-two-three',
-	name: 'One Two Three',
-	component: './OneTwoThree',
-	icon: 'ArrowsAltOutlined',
+		path: '/one-two-three',
+		name: 'One Two Three',
+		component: './OneTwoThree',
+		icon: 'ArrowsAltOutlined',
 	},
 	{
-	path: '/quan-ly-ngan-hang',
-	name: 'Quản Lý Ngân Hàng',
-	component: './QuanLyNganHang',
-	icon: 'ArrowsAltOutlined',
+		path: '/quan-ly-ngan-hang',
+		name: 'Quản Lý Ngân Hàng',
+		component: './QuanLyNganHang',
+		icon: 'ArrowsAltOutlined',
 	},
 
-{
-  path: '/appointment',
-  name: 'Lịch hẹn',
-  routes: [
-    { path: '/appointment/staff', name: 'Nhân viên', component: './Appointment/StaffPage' },
-    { path: '/appointment/service', name: 'Dịch vụ', component: './Appointment/ServicePage' },
-    { path: '/appointment/booking', name: 'Đặt lịch', component: './Appointment/BookingPage' },
-  ],
-},
-
+	{
+		path: '/appointment',
+		name: 'Lịch hẹn',
+		icon: 'FileTextOutlined',
+		routes: [
+			{ path: '/appointment/staff', name: 'Nhân viên', component: './Appointment/StaffPage' },
+			{ path: '/appointment/service', name: 'Dịch vụ', component: './Appointment/ServicePage' },
+			{ path: '/appointment/booking', name: 'Đặt lịch', component: './Appointment/BookingPage' },
+		],
+	},
+	{
+		path: '/quanlyVanBang',
+		name: 'Quản lý văn bằng',
+		icon: 'FileTextOutlined',
+		component: './QuanLyVanBang',
+	},
 
 	// DANH MUC HE THONG
 	// {
