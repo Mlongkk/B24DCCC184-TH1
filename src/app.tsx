@@ -16,6 +16,7 @@ import NotFoundContent from './pages/exception/404';
 import type { IInitialState } from './services/base/typing';
 import './styles/global.less';
 import { currentRole } from './utils/ip';
+import 'antd/dist/antd.css';  // fix antd css not loading in production
 
 /**  loading */
 export const initialStateConfig = {
