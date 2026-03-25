@@ -79,6 +79,25 @@ export default [
 		icon: 'FileTextOutlined',
 		component: './QuanLyVanBang',
 	},
+	{
+		path: '/club',
+		name: 'Quản lý câu lạc bộ',
+		icon: 'FileTextOutlined',
+		component: './Club',
+	},
+	{
+		path: '/apply',
+		name: 'Quản lý đơn đăng ký thành viên',
+		icon: 'FileTextOutlined',
+		component: './Apply',
+	},
+	{
+		path: '/apply',
+		name: 'Quản lý báo cáo và thống kê',
+		icon: 'FileTextOutlined',
+		component: './Dashboard',
+	},
+
 
 	// DANH MUC HE THONG
 	// {
