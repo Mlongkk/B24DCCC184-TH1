@@ -65,12 +65,12 @@ const Club = () => {
                     <div>
                         <Button
                             onClick={() => {
-                                history.push(`/club/${record.name}`);
+                                history.push(`/club/${encodeURIComponent(record.name)}`);
                             }}
                         >
                             Members
                         </Button>
-                        
+
                         <Button
                             onClick={() => {
                                 setVisible(true);

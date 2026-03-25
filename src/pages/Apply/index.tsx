@@ -2,11 +2,13 @@ import { Button, Modal, Table, Input } from 'antd';
 import { useEffect, useState } from 'react';
 import { useModel } from 'umi';
 import FormApply from './Form';
+import type { IColumn } from '@/components/Table/typing';
+import type { Apply } from '@/models/apply';
+
 
 export default () => {
     const { data, getData, selectedRowKeys, setSelectedRowKeys, updateStatus } = useModel('apply');
     const [visible, setVisible] = useState(false);
-    const [rejectReason, setRejectReason] = useState('');
 
     useEffect(() => {
         getData();
@@ -17,27 +19,61 @@ export default () => {
         onChange: setSelectedRowKeys,
     };
 
+    const columns: IColumn<Apply>[] = [
+        {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            width: 100,
+            align: 'center'
+        },
+        {
+            title: 'Email',
+            dataIndex: 'email',
+            key: 'email',
+            width: 100,
+            align: 'center'
+        },
+        {
+            title: 'Phone',
+            dataIndex: 'phone',
+            key: 'phone',
+            width: 100,
+            align: 'center'
+        },
+        {
+            title: 'Club',
+            dataIndex: 'club',
+            key: 'club',
+            align: 'center',
+            width: 100,
+        },
+        {
+            title: 'Status',
+            dataIndex: 'status',
+            key: 'status',
+            width: 100, 
+            align: 'center'
+        },
+    ];
+
     return (
         <div>
             <Button onClick={() => setVisible(true)}>Add Apply</Button>
 
             <Button onClick={() => updateStatus(selectedRowKeys as string[], 'Approved')}>
-                Approve ({selectedRowKeys.length})
+                Approve 
             </Button>
 
-            <Button onClick={() => setVisible(true)}>
-                Reject ({selectedRowKeys.length})
+            <Button onClick={() => updateStatus(selectedRowKeys as string[], 'Rejected')}>
+                Reject 
             </Button>
 
             <Table
                 rowSelection={rowSelection}
                 rowKey="id"
                 dataSource={data}
-                columns={[
-                    { title: 'Name', dataIndex: 'name' },
-                    { title: 'Club', dataIndex: 'club' },
-                    { title: 'Status', dataIndex: 'status' },
-                ]}
+                columns={columns}
             />
 
             <Modal visible={visible} onCancel={() => setVisible(false)} footer={null}>

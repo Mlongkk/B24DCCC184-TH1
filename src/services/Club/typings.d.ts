@@ -7,4 +7,5 @@ declare module Club {
         leader: string;
         available: string;
     }
+
 }

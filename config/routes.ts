@@ -86,13 +86,17 @@ export default [
 		component: './Club',
 	},
 	{
+		path: '/club/:name',
+		component: '@/pages/Club/[name].tsx',
+	},
+	{
 		path: '/apply',
 		name: 'Quản lý đơn đăng ký thành viên',
 		icon: 'FileTextOutlined',
 		component: './Apply',
 	},
 	{
-		path: '/apply',
+		path: '/dashboardClub',
 		name: 'Quản lý báo cáo và thống kê',
 		icon: 'FileTextOutlined',
 		component: './Dashboard',
