@@ -52,7 +52,7 @@ export default () => {
             title: 'Status',
             dataIndex: 'status',
             key: 'status',
-            width: 100, 
+            width: 100,
             align: 'center'
         },
     ];
@@ -62,11 +62,11 @@ export default () => {
             <Button onClick={() => setVisible(true)}>Add Apply</Button>
 
             <Button onClick={() => updateStatus(selectedRowKeys as string[], 'Approved')}>
-                Approve 
+                Approve
             </Button>
 
             <Button onClick={() => updateStatus(selectedRowKeys as string[], 'Rejected')}>
-                Reject 
+                Reject
             </Button>
 
             <Table

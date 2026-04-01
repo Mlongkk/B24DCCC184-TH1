@@ -54,7 +54,7 @@ export default () => {
             title: 'Status',
             dataIndex: 'status',
             key: 'status',
-            width: 100, 
+            width: 100,
             align: 'center'
         },
     ];
