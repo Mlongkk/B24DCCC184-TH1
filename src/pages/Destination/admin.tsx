@@ -2,10 +2,14 @@ import { Input, Button, Upload, message } from 'antd';
 import { useState } from 'react';
 import { useModel } from 'umi';
 import { validateDestination } from '@/utils/validate';
+import { Select } from 'antd';
+import { useEffect } from 'react';
 
 export default () => {
-    const { data, add, remove } = useModel('destination');
+    const { data, add, remove, getDataDestination } = useModel('destination');
     const [form, setForm] = useState<any>({});
+
+    useEffect(() => { getDataDestination(); }, []);
 
     const handleAdd = () => {
         const err = validateDestination(form);
@@ -21,7 +25,17 @@ export default () => {
     return (
         <div>
             <Input placeholder="Name" onChange={e => setForm({ ...form, name: e.target.value })} />
-            <Input placeholder="Type" onChange={e => setForm({ ...form, type: e.target.value })} />
+
+            <Select
+                placeholder="Select type"
+                style={{ width: "100%" }}
+                onChange={(value) => setForm({ ...form, type: value })}
+            >
+                <Select.Option value="beach">Beach</Select.Option>
+                <Select.Option value="mountain">Mountain</Select.Option>
+                <Select.Option value="city">City</Select.Option>
+            </Select>
+
             <Input placeholder="Price" type="number" onChange={e => setForm({ ...form, price: Number(e.target.value) })} />
 
             <Upload beforeUpload={(file) => {

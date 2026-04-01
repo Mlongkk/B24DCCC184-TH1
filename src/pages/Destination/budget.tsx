@@ -1,9 +1,15 @@
 import { useModel } from 'umi';
 import { Pie } from '@ant-design/plots';
 import { Alert } from 'antd';
+import { useEffect } from 'react';
 
 export default () => {
     const { data, total } = useModel('budget');
+    const { getData } = useModel('planner');
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     return (
         <div>

@@ -3,16 +3,16 @@ import { useModel } from 'umi';
 import { Row, Col, Select, Card } from 'antd';
 
 export default () => {
-    const { data, getData } = useModel('destination');
+    const { data, getDataDestination } = useModel('destination');
     const [type, setType] = useState('');
 
-    useEffect(() => { getData(); }, []);
+    useEffect(() => { getDataDestination(); }, []);
 
     const filtered = data.filter(i => !type || i.type === type);
 
     return (
         <Row gutter={16}>
-            <Select onChange={setType} style={{ width: 200 }}>
+            <Select onChange={setType} style={{ width: 200 }} placeholder="Select type">
                 <Select.Option value="">All</Select.Option>
                 <Select.Option value="beach">Beach</Select.Option>
                 <Select.Option value="mountain">Mountain</Select.Option>

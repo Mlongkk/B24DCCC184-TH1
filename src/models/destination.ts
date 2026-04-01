@@ -84,7 +84,7 @@ export default () => {
     }
   ]);
 
-  const getData = () => {
+  const getDataDestination = () => {
     const raw = localStorage.getItem(KEY);
 
     if (!raw) {
@@ -116,5 +116,5 @@ export default () => {
   const remove = (id: string) => save(data.filter(i => i.id !== id));
   const update = (item: Destination) => save(data.map(i => i.id === item.id ? item : i));
 
-  return { data, getData, add, remove, update };
+  return { data, getDataDestination, add, remove, update };
 };

@@ -5,24 +5,39 @@ export interface PlanDay {
     items: any[];
 }
 
+const KEY = 'planner';
+
+
 export default () => {
     const [plan, setPlan] = useState<PlanDay[]>([]);
 
+    const getData = () => {
+        const raw = localStorage.getItem(KEY);
+        setPlan(raw ? JSON.parse(raw) : []);
+    };
+
+    const save = (newPlan: PlanDay[]) => {
+        localStorage.setItem(KEY, JSON.stringify(newPlan));
+        setPlan(newPlan);
+    }
 
     const addDay = () => {
-        setPlan([...plan, { day: plan.length + 1, items: [] }]);
+        const newPlan = [...plan, { day: plan.length + 1, items: [] }];
+        save(newPlan);
     };
 
     const addToDay = (day: number, item: any) => {
-        setPlan(plan.map(d => d.day === day ? { ...d, items: [...d.items, item] } : d));
+        const newPlan = plan.map(d => d.day === day ? { ...d, items: [...d.items, item] } : d);
+        save(newPlan);
     };
 
     const removeItem = (day: number, id: string) => {
-        setPlan(plan.map(d => d.day === day ? {
+        const newPlan = plan.map(d => d.day === day ? {
             ...d,
             items: d.items.filter(i => i.id !== id)
-        } : d));
+        } : d);
+        save(newPlan);
     };
 
-    return { plan, addDay, addToDay, removeItem };
+    return { plan, addDay, addToDay, removeItem, getData };
 };

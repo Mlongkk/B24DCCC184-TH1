@@ -1,11 +1,17 @@
 import { useModel } from 'umi';
 import { Button, Card } from 'antd';
 import { Alert } from 'antd';
+import { useEffect } from 'react';
 
 export default () => {
-    const { data } = useModel('destination');
-    const { plan, addDay, addToDay, removeItem } = useModel('planner');
+    const { data, getDataDestination } = useModel('destination');
+    const { plan, addDay, addToDay, removeItem, getData } = useModel('planner');
     const { total } = useModel('budget');
+
+    useEffect(() => {
+        getDataDestination();
+        getData();
+    }, []);
 
     return (
         <div>
